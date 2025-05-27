@@ -1,0 +1,2 @@
+email.username=${your_gmail_id}
+email.password=${google_generated_password}

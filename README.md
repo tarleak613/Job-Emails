@@ -65,12 +65,12 @@ Fetches job/internship-related emails
 
 ## ✅ To Do
 
-- [Done] Integrate Gemini API for AI-based classification
-- [ ] Implement AI/NLP-based filtering
+- [x] Integrate Gemini API for AI-based classification
+- [x] Implement AI/NLP-based filtering
 - [ ] Support HTML email rendering
 - [ ] Add pagination for large inboxes
-- [ ] Implement API authentication
-- [ ] Add attachment handling
+- [x] Implement API authentication
+- [x] Add attachment handling
 
 ## 📄 License  
 Personal/educational use only (Not licensed for production)

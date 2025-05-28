@@ -1,2 +1,10 @@
 email.username=${your_gmail_id}
 email.password=${google_generated_password}
+
+twilio.account_sid=your_sid
+twilio.auth_token=your_aut_token
+twilio.from_whatsapp=whatsapp:your_from_number
+twilio.to_whatsapp=whatsapp:your_to_number
+
+gemini.api.url=your_gemini_model_url
+gemini.api.key=your_gemini_api_key

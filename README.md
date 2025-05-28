@@ -22,28 +22,31 @@ This is the **v2** of the Spring Boot application that connects to your Gmail in
 - Java HTTP Client  
 - Jackson (JSON parsing)  
 - Google Gemini API (for AI classification)
-- 
-## 🔧 Dependencies Used
-<pre>
-  	<!-- Jakarta Mail (Angus Mail - for Spring Boot 3+) -->
-		<dependency>
-			<groupId>com.sun.mail</groupId>
-			<artifactId>jakarta.mail</artifactId>
-			<version>2.0.1</version>
-		</dependency>
 
-		<!-- Jakarta Activation (needed by Angus Mail) -->
-		<dependency>
-			<groupId>com.sun.activation</groupId>
-			<artifactId>jakarta.activation</artifactId>
-			<version>2.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.twilio.sdk</groupId>
-			<artifactId>twilio</artifactId>
-			<version>10.9.0</version>
-		</dependency>
-</pre>
+## 🔧 Dependencies Used
+
+```xml
+<!-- Jakarta Mail (Angus Mail - for Spring Boot 3+) -->
+<dependency>
+    <groupId>com.sun.mail</groupId>
+    <artifactId>jakarta.mail</artifactId>
+    <version>2.0.1</version>
+</dependency>
+
+<!-- Jakarta Activation (needed by Angus Mail) -->
+<dependency>
+    <groupId>com.sun.activation</groupId>
+    <artifactId>jakarta.activation</artifactId>
+    <version>2.0.1</version>
+</dependency>
+
+<!-- Twilio (for WhatsApp push notifications) -->
+<dependency>
+    <groupId>com.twilio.sdk</groupId>
+    <artifactId>twilio</artifactId>
+    <version>10.9.0</version>
+</dependency>
+
 
 ## 📦 How to Run
 
@@ -57,8 +60,12 @@ This is the **v2** of the Spring Boot application that connects to your Gmail in
 Add to `src/main/resources/application.properties`:
 <pre> email.username=your_email@gmail.com </pre>
 <pre> email.password=your_app_password </pre>
-<pre>gemini.api.url=https://generativelanguage.googleapis.com/v1beta2/models/gemini-2.0-flash:generateMessage</pre>
-<pre>gemini.api.key=YOUR_GEMINI_API_KEY</pre>
+<pre>gemini.api.url=https://generativelanguage.googleapis.com/v1beta2/models/gemini-2.0-flash:generateMessage
+gemini.api.key=YOUR_GEMINI_API_KEY</pre>
+<pre>twilio.account_sid=your_sid
+twilio.auth_token=your_aut_token
+twilio.from_whatsapp=whatsapp:your_from_number
+twilio.to_whatsapp=whatsapp:your_to_number</pre>
 
 > 💡 Use an [App Password](https://myaccount.google.com/apppasswords) if 2FA is enabled
 

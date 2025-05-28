@@ -46,7 +46,7 @@ This is the **v2** of the Spring Boot application that connects to your Gmail in
     <artifactId>twilio</artifactId>
     <version>10.9.0</version>
 </dependency>
-'''
+```
 
 ## 📦 How to Run
 

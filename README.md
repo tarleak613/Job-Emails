@@ -1,0 +1,81 @@
+# 📧 Access Email Job Alerts - Spring Boot Application
+
+This is the **v2** of the Spring Boot application that connects to your Gmail inbox, reads emails, and filters **job/internship-related emails** using a combination of keyword-based and AI-based classification via Google Gemini API.
+
+---
+
+## 🚀 What's New in Version 2?
+
+- Uses **Google Gemini API** to classify emails as job-related or not with AI-powered NLP  
+- Better accuracy compared to keyword-only filtering  
+- Handles email content preprocessing and JSON-based prompt generation for Gemini  
+- Still supports Gmail IMAP connection for fetching emails  
+- Improved JSON parsing of Gemini API responses  
+- Maintains legacy keyword filtering as fallback (optional)  
+
+## 🔧 Technologies Used
+
+- Java 17  
+- Spring Boot 3.5.0  
+- Jakarta Mail (JavaMail)  
+- Maven  
+- Java HTTP Client  
+- Jackson (JSON parsing)  
+- Google Gemini API (for AI classification)  
+
+## 📦 How to Run
+
+### 1. Clone the repository
+<pre> git clone https://github.com/YOUR_USERNAME/access-email.git  </pre>
+<pre> cd access-email </pre>
+<pre>git checkout v2</pre>
+
+
+### 2. Configure Gmail Credentials
+Add to `src/main/resources/application.properties`:
+<pre> email.username=your_email@gmail.com </pre>
+<pre> email.password=your_app_password </pre>
+<pre>gemini.api.url=https://generativelanguage.googleapis.com/v1beta2/models/gemini-2.0-flash:generateMessage</pre>
+<pre>gemini.api.key=YOUR_GEMINI_API_KEY</pre>
+
+> 💡 Use an [App Password](https://myaccount.google.com/apppasswords) if 2FA is enabled
+
+### 3. Run the application
+<pre> ./mvnw spring-boot:run </pre>
+
+Or run `AccessEmailApplication` directly in your IDE (IntelliJ/VS Code).
+
+## 🔍 API Endpoint
+
+**GET** `/jobEmails`  
+Fetches job/internship-related emails
+
+**Sample Response:**
+<pre>
+[
+{
+"from": "careers@example.com",
+"to": "your_email@gmail.com",
+"subject": "Internship Opportunity at ABC Corp",
+"body": "We are hiring interns for summer 2025..."
+}
+]
+</pre>
+
+
+## ✅ To Do
+
+- [Done] Integrate Gemini API for AI-based classification
+- [ ] Implement AI/NLP-based filtering
+- [ ] Support HTML email rendering
+- [ ] Add pagination for large inboxes
+- [ ] Implement API authentication
+- [ ] Add attachment handling
+
+## 📄 License  
+Personal/educational use only (Not licensed for production)
+
+## ✍️ Author  
+**Ayush Kumar**  
+📧 [ayushbhagat1213@gmail.com](mailto:ayushbhagat1213@gmail.com)
+🌐 [https://www.linkedin.com/in/bhagat-ayush/](https://www.linkedin.com/in/bhagat-ayush/)

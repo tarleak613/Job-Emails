@@ -21,7 +21,29 @@ This is the **v2** of the Spring Boot application that connects to your Gmail in
 - Maven  
 - Java HTTP Client  
 - Jackson (JSON parsing)  
-- Google Gemini API (for AI classification)  
+- Google Gemini API (for AI classification)
+- 
+## 🔧 Dependencies Used
+<pre>
+  	<!-- Jakarta Mail (Angus Mail - for Spring Boot 3+) -->
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>jakarta.mail</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+
+		<!-- Jakarta Activation (needed by Angus Mail) -->
+		<dependency>
+			<groupId>com.sun.activation</groupId>
+			<artifactId>jakarta.activation</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.twilio.sdk</groupId>
+			<artifactId>twilio</artifactId>
+			<version>10.9.0</version>
+		</dependency>
+</pre>
 
 ## 📦 How to Run
 

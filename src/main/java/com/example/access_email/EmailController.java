@@ -15,6 +15,9 @@ public class EmailController {
         @Autowired
         private EmailReaderService emailReaderService;
 
+        @Autowired
+        private EmailWriterService emailWriterService;
+
         @GetMapping
         public List<Map<String, String>> getEmails() throws Exception {
             return emailReaderService.fetchEmails();
@@ -23,7 +26,7 @@ public class EmailController {
         @GetMapping("/jobEmails")
         public List<Map<String, String>> getJobEmails() {
                 try {
-                        return emailReaderService.fetchJobRelatedEmails();
+                        return emailWriterService.fetchJobRelatedEmails();
                 } catch (Exception e) {
                         throw new RuntimeException("Failed to fetch job-related emails", e);
                 }

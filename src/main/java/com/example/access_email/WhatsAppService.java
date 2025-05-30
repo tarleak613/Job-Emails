@@ -7,6 +7,8 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
+
 @Service
 public class WhatsAppService {
 
@@ -30,6 +32,16 @@ public class WhatsAppService {
     }
 
     public void sendWhatsAppMessage(String messageBody){
+        final int MAX_BYTES = 1590;
+        byte[] messageBytes = messageBody.getBytes(StandardCharsets.UTF_8);
+        if (messageBytes.length > MAX_BYTES) {
+            // Truncate safely without splitting multi-byte characters
+            int end = messageBody.length();
+            while (new String(messageBody.substring(0, end).getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8).getBytes().length > MAX_BYTES - 15) {
+                end--;
+            }
+            messageBody = messageBody.substring(0, end) + "\n[truncated]";
+        }
         Message message = Message.creator(
                 new PhoneNumber(toWhatsApp),
                 new PhoneNumber(fromWhatsApp),

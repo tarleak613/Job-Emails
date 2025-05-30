@@ -70,15 +70,15 @@ public class EmailReaderService {
         return emails;
     }
 
-    private String getTextFromMessage(Message message) throws Exception {
-        if (message.isMimeType("text/plain")) {
-            return message.getContent().toString();
-        } else if (message.isMimeType("multipart/*")) {
-            MimeMultipart mimeMultipart = (MimeMultipart) message.getContent();
-            return getTextFromMimeMultipart(mimeMultipart);
+        private String getTextFromMessage(Message message) throws Exception {
+            if (message.isMimeType("text/plain")) {
+                return message.getContent().toString();
+            } else if (message.isMimeType("multipart/*")) {
+                MimeMultipart mimeMultipart = (MimeMultipart) message.getContent();
+                return getTextFromMimeMultipart(mimeMultipart);
+            }
+            return "";
         }
-        return "";
-    }
 
     private String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws Exception {
         StringBuilder result = new StringBuilder();
